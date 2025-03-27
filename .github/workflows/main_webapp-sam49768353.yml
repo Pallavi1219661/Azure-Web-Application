@@ -24,10 +24,10 @@ jobs:
           dotnet-version: '8.x'
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build --configuration Release --project Azure-Web-Application/webapp-sam-lab13/webapp-sam-lab13.csproj
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+        run: dotnet publish --configuration Release --output "${{env.DOTNET_ROOT}}/myapp" --project Azure-Web-Application/webapp-sam-lab13/webapp-sam-lab13.csproj
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
